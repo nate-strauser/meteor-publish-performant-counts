@@ -4,7 +4,7 @@ Meteor Publish Performant Counts
 A package to help you publish the count of a cursor in near real time.  Interval based counting suitable for very large collections and high user load.
 
 
-##Counter API
+## Counter API
 
 
 ```
@@ -18,10 +18,10 @@ new Counter(name, cursor, [updateInterval])
 `updateInterval` defaults to 10000, which will update the count every 10 seconds.
 
 
-##Publish from Server
+## Publish from Server
 
 
-###Publish scoped counts
+### Publish scoped counts
 
 Counts that are specific to a user or parameter must be declared within the publish function.  This will create 1 counter for each user who subscribes.
 
@@ -37,7 +37,7 @@ Meteor.publish('countPublish', function(someValue) {
 
 
 
-###Server scoped counts
+### Server scoped counts
 
 
 Server scoped counts that are defined outside of publish functions are more efficient that specific counts as it only creates 1 counter per server.
