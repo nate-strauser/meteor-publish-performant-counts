@@ -82,6 +82,56 @@ Call from within a template
 ...
 ```
 
+## Multiple Counters
+In case you need multiple counters at once, you can pass multiple cursors when creating a `Counter` in the server. Each entry in the array must contain a `name` and a `cursor`.
+
+```
+var multipleCounter = new Counter(
+  'multipleCounter',
+  [
+    {
+      name: 'counterA',
+      cursor: MyCollection.find({type: 'A'})
+    },
+    {
+      name: 'counterB',
+      cursor: MyCollection.find({type: 'B'})
+    }
+  ]
+);
+Meteor.publish('multipleCounter', function() { return multipleCounter });
+```
+
+In the client, you just need to subscribe to one collection:
+
+```
+Meteor.subscribe('multipleCounter');
+```
+
+and you can access this counters in two different ways:
+
+### Get all counters as an object
+If you need to access all counters at once, you can get them as an object:
+
+```
+Counter.get('multipleCounter');
+// this will return something like this:
+// {
+//   _id: "multipleCounter",
+//   counterA: 32,
+//   counterB: 64
+// }
+```
+
+### Get one counter value directly
+In case you need to access only one of your counters (i.e: in a helper), you can pass and additional param with the name of the counter:
+
+```
+Counter.get('multipleCounter', 'counterA');
+// this will return something like this:
+// 32
+```
+
 Credits
 =======
 

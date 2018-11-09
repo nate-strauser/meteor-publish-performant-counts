@@ -1,6 +1,6 @@
 Package.describe({
   name: 'natestrauser:publish-performant-counts',
-  version: '0.1.2',
+  version: '0.2.0',
   // Brief, one-line summary of the package.
   summary: 'Publish counts of large collections efficently',
   // URL to the Git repository containing the source code for this package.
