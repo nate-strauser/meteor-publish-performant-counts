@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'luixal:publish-performant-counts',
+  name: 'natestrauser:publish-performant-counts',
   version: '0.2.0',
   // Brief, one-line summary of the package.
   summary: 'Publish counts of large collections efficently',
